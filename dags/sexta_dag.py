@@ -9,7 +9,7 @@ from airflow.models.baseoperator import chain
 from datetime import datetime
 
 @dag(
-        dag_id = "minha_segunda_dag",
+        dag_id = "chain_dag",
         description = "etl de exemplo para estudo",
         schedule = "* * * * *",
         start_date = datetime(2025, 3, 8),
