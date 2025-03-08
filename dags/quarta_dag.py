@@ -1,12 +1,14 @@
 ## com decorador @
 # Maneira recomendada!
 
+# Testes com operadores de ordenamento de tasks
+
 from time import sleep
 from airflow.decorators import dag, task
 from datetime import datetime
 
 @dag(
-        dag_id = "minha_primeira_dag",
+        dag_id = "minha_segunda_dag",
         description = "etl de exemplo para estudo",
         schedule = "* * * * *",
         start_date = datetime(2025, 3, 8),
@@ -39,6 +41,7 @@ def pipeline():
     task3 = terceira_atividade()
     task4 = quarta_atividade()
 
-    task1 >> task2 >> task3 >> task4
+    task1 >> [task2,task3]
+    task3 << task4
 
 pipeline()
