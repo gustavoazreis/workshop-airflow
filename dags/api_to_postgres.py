@@ -33,4 +33,4 @@ def api_pokemon_postgres():
 
     t1 >> t2 >> t3 >> t4
 
-api_postgres()
+api_pokemon_postgres()
