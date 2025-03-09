@@ -6,14 +6,19 @@ authors = ["Gustavo Reis <gustavoazreis@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.11,<3.13"
 loguru = "^0.7.3"
 streamlit = "^1.43.1"
 requests = "^2.32.3"
 python-dotenv = "^1.0.1"
 pydantic = "^2.10.6"
-sqlalchemy = "^2.0.38"
+sqlalchemy = ">=1.4.36,<2.0"
 psycopg2 = "^2.9.10"
+apache-airflow = "^2.10.5"
+apache-airflow-providers-postgres = "^6.1.0"
+astro-sdk-python = {extras = ["duckdb"], version = "^1.8.1"}
+airflow-provider-duckdb = "^0.2.0"
+duckdb = "^1.2.1"
 
 
 [build-system]
