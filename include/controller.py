@@ -18,10 +18,19 @@ def fetch_pokemon_data(pokemon_id: int):
     else:
         return None
 
-def add_pokemon_to_db(pokemon_schema: PokemonSchema) -> Pokemon:
+def add_pokemon_to_db(pokemon_schema: PokemonSchema) -> dict:
     with SessionLocal() as db:
         db_pokemon = Pokemon(name=pokemon_schema.name, type=pokemon_schema.type)
         db.add(db_pokemon)
         db.commit()
         db.refresh(db_pokemon)
-    return db_pokemon
+        
+        # Converta o objeto Pokemon para um dicionário
+        pokemon_dict = {
+            "id": db_pokemon.id,
+            "name": db_pokemon.name,
+            "type": db_pokemon.type,
+            "created_at": db_pokemon.created_at.isoformat() if db_pokemon.created_at else None
+        }
+    
+    return pokemon_dict
